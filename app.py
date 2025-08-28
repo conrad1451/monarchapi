@@ -6,9 +6,12 @@ import json
 from flask import Flask, jsonify
 import psycopg2
 from psycopg2 import sql
+from flask_cors import CORS # Import Flask-CORS
 
 # --- Configure Flask Application ---
 app = Flask(__name__)
+# Enable CORS for all routes and origins to allow the React app to connect
+CORS(app) 
 
 # Use the Google VM variable as the user's script does
 GOOGLE_VM_DOCKER_HOSTED_SQL = os.getenv('GOOGLE_VM_DOCKER_HOSTED_SQL', '5432')
